@@ -4,33 +4,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Location & Delivery</title>
+  <title>Location & Delivery - HOmIE</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    html,
     body {
       overflow-x: hidden;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(145deg, #d5e8d4, #c7d3c0);
+      color: #1b5e20;
       display: flex;
       flex-direction: column;
       align-items: center;
-      background: linear-gradient(145deg, #d5e8d4, #c7d3c0);
-      color: black;
-      padding: 50px 0;
-      font-family: sans-serif;
+      padding-top: 60px;
+      padding-bottom: 80px;
     }
 
+    /* ====== Top Bar ====== */
     .top-bar {
       width: 100%;
       height: 50px;
       display: flex;
       justify-content: space-between;
-      /* left & right sides */
       align-items: center;
       padding: 0 16px;
       position: fixed;
@@ -42,107 +45,121 @@
     }
 
     .brand {
-      font-family: "Arial", sans-serif;
       font-size: 26px;
-      /* make it large like the image */
       font-weight: bold;
       color: #2e5d3b;
-      display: flex;
-      align-items: center;
-    }
-
-    .brand i {
-      margin-left: 0px;
-      font-size: 26px;
-      /* same size as HOMIE text */
     }
 
     .cart {
-      font-size: 28px;
+      font-size: 26px;
       color: brown;
       cursor: pointer;
-      margin-right: 12px;
     }
 
-    /* Slider */
-    .slider-wrapper {
+    /* ====== Header Section ====== */
+    .header3 {
+      width: 100%;
+      background-color: #d0f0d0;
+      padding: 26px 0;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: #1b5e20;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 10px rgba(0, 128, 0, 0.2);
+      margin-top: -10px;
+    }
+
+    /* ====== Highlights ====== */
+    #homie-highlights {
+      background: #f8fff8;
+      border-radius: 20px;
+      padding: 15px 0;
+      overflow: hidden;
+      margin: 10px auto;
+      width: 95%;
+      box-shadow: 0 4px 12px rgba(0, 128, 0, 0.15);
+      position: relative;
+    }
+
+    .highlights-wrapper {
+      display: flex;
       overflow: hidden;
       width: 100%;
-      max-width: 1000px;
-      margin: 0 auto;
-      margin-top: -58px;
-      position: relative;
     }
 
-    .slider {
+    .highlights-track {
       display: flex;
-      transition: transform 0.3s ease-in-out;
+      gap: 25px;
+      animation: slideHighlights 18s linear infinite;
+      white-space: nowrap;
     }
 
-    .slide {
-      flex: 0 0 100%;
-      position: relative;
+    .highlight-card {
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      background: white;
+      border-radius: 15px;
+      padding: 12px 25px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #1b5e20;
+      box-shadow: 0 2px 10px rgba(0, 128, 0, 0.1);
+      min-width: 260px;
+      transition: 0.3s;
     }
 
-    .slide img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      border-radius: 6px;
-    }
-
-    /* Text overlay on images */
-    .overlay {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      background: rgba(0, 0, 0, 0.6);
-      color: white;
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: bold;
-      line-height: 1.4;
-    }
-
-    .overlay span {
-      display: block;
-      font-size: 13px;
-      color: #ffd700;
-      margin-top: 2px;
-    }
-
-    .dots {
-      margin-top: 10px;
-      text-align: center;
-    }
-
-    .dot {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      background-color: #bbb;
-      border-radius: 50%;
-      margin: 0 4px;
-      cursor: pointer;
+    .highlight-card i {
+      color: #2e7d32;
       margin-right: 10px;
+      font-size: 18px;
     }
 
-    .dot.active {
-      background-color: black;
+    .highlight-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0, 128, 0, 0.25);
+    }
+
+    @keyframes slideHighlights {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ====== Product Section ====== */
+    .new-section,
+    .new-section-one {
+      margin-top: 25px;
+      color: #2f4f4f;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: left;
+      width: 95%;
+      max-width: 1000px;
+      padding-left: 10px;
+    }
+
+    .info-box {
+      font-size: 14px;
+      color: #555;
+      margin-top: 4px;
+      margin-bottom: 10px;
+      text-align: left;
+      width: 95%;
+      padding-left: 15px;
     }
 
     .categories {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-top: -6px;
+      gap: 12px;
       width: 95%;
       max-width: 800px;
-      /* padding: 0 0px;*/
     }
 
     .category-item {
@@ -153,60 +170,50 @@
       transition: 0.3s;
       display: flex;
       flex-direction: column;
-      position: relative;
       width: 165px;
       height: 250px;
-    }
-
-    .category-item:active {
-      transform: scale(0.97);
-      transition: transform 0.1s ease-in-out;
-      box-shadow: 4px 4px 8px #aaa;
+      position: relative;
     }
 
     .category-item img {
       width: 100%;
       height: 150px;
-      /* Add fixed height */
       object-fit: cover;
       border-bottom: 1px solid #b5b5b5;
     }
 
     .item-content {
-      padding: 8px 10px 10px;
+      padding: 8px 10px;
       text-align: left;
     }
 
     .product-title {
       font-weight: bold;
       font-size: 16px;
-      line-height: 1.4;
     }
 
     .product-details {
       color: #555;
       font-size: 13px;
-      margin-top: 6px;
+      margin-top: 4px;
     }
 
     .price-section {
-      margin-top: 6px;
+      margin-top: 5px;
       font-size: 14px;
       display: flex;
       align-items: center;
-      flex-wrap: wrap;
     }
 
     .current-price {
       font-weight: bold;
-      font-size: 15px;
       margin-right: 6px;
     }
 
     .original-price {
       text-decoration: line-through;
       color: #888;
-      font-size: 14px;
+      font-size: 13px;
       margin-right: 6px;
     }
 
@@ -216,191 +223,13 @@
       font-size: 14px;
     }
 
-    .badge {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      background: #198754;
-      color: white;
-      padding: 3px 7px;
-      font-size: 11px;
-      border-radius: 10px;
-      font-weight: bold;
-    }
-
-    .new-section {
-      margin-top: 30px;
-      color: #2f4f4f;
-      font-size: 22px;
-      font-weight: bold;
-      text-align: left;
-      width: 100%;
-      max-width: 1000px;
-      padding-left: 10px;
-    }
-
-    .new-section-one {
-      margin-top: 16px;
-      color: #2f4f4f;
-      font-size: 22px;
-      font-weight: bold;
-      text-align: left;
-      width: 100%;
-      max-width: 1000px;
-      padding-left: 10px;
-    }
-
-    .new-section-four {
-      margin-top: 10px;
-      color: #2f4f4f;
-      font-size: 22px;
-      font-weight: bold;
-      text-align: left;
-      width: 100%;
-      max-width: 1000px;
-      padding-left: 10px;
-    }
-
-    .info-box {
-      font-size: 14px;
-      color: #555;
-      margin-top: -1px;
-      margin-left: 10px;
-      margin-bottom: 10px;
-      text-align: left;
-      width: 100%;
-      max-width: 1000px;
-      padding-left: 15px;
-    }
-
-    @media (max-width: 400px) {
-      .product-title {
-        font-size: 14px;
-      }
-
-      .price-section .current-price,
-      .price-section .discount {
-        font-size: 13px;
-      }
-
-      .price-section .original-price {
-        font-size: 12px;
-      }
-    }
-
-    button {
-      -webkit-tap-highlight-color: transparent;
-      /* ✅ Removes mobile flash highlight */
-      outline: none;
-      /* ✅ Removes focus outline (if needed) */
-      -webkit-user-select: none;
-      /* ✅ Prevents accidental selection */
-      transition: transform 0.01s ease-in-out;
-      /* ✅ Smooth press-down animation */
-    }
-
-    button:active {
-      transform: scale(0.98);
-      /* ✅ Adds subtle press effect */
-    }
-
-    /*shop by category*/
-    .header {
-      text-align: center;
-      margin-right: 155px;
-      margin-top: 38px;
-      color: #2f4f4f;
-    }
-
-    .header h1 {
-      font-size: 22px;
-      font-weight: bold;
-      margin: 10 0 5px;
-    }
-
-    .header .subtitle {
-      font-size: 12px;
-      color: #444;
-      margin: 0;
-    }
-
-    .second_categories-wrapper {
-      display: flex;
-      justify-content: center;
-    }
-
-    .second_categories {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      padding: 20px 10px;
-      max-width: 420px;
-      width: 100%;
-    }
-
-    .row-heading {
-      font-size: 15px;
-      font-weight: 600;
-      margin-left: 10px;
-      margin-top: -4px;
-      color: #2f4f4f;
-    }
-
-    .second-row-up {
-      margin-top: -5px;
-      /* You can adjust this value */
-    }
-
-    .custom_row {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .second_category-item {
-      flex: 1;
-      text-align: center;
-    }
-
-    .round-bg {
-      width: 75px;
-      height: 75px;
-      border-radius: 50%;
-      background-color: #c7d3c0;
-      box-shadow: 4px 4px 10px #aaa;
-      margin: 0 auto 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: 0.3s;
-    }
-
-    .round-bg:active {
-      transform: scale(0.87);
-      box-shadow: 4px 4px 8px #aaa;
-    }
-
-    .round-bg img {
-      width: 75px;
-      height: 75px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .second_category-item p {
-      margin: 0;
-      font-size: 10px;
-      font-weight: 500;
-      color: #222;
-    }
-
+    /* ====== Bottom Navigation ====== */
     .bottom-nav {
       position: fixed;
       bottom: 0;
       left: 0;
       width: 100%;
-      background: #FFFDDD;
-      /* Fastrack green background */
+      background: #fffddd;
       display: flex;
       justify-content: space-around;
       padding: 10px 0;
@@ -414,9 +243,8 @@
       align-items: center;
       font-size: 12px;
       color: black;
-      /* White text & icons */
       cursor: pointer;
-      transition: transform 0.2s, color 0.2s;
+      transition: 0.3s;
     }
 
     .nav-item i {
@@ -427,44 +255,31 @@
     .nav-item.active,
     .nav-item:hover {
       transform: scale(1.1);
-      /* Slight zoom effect on active/hover */
       color: black;
-      /* Optional: golden highlight for active */
     }
 
-    * {
-      -webkit-tap-highlight-color: transparent;
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* Page 2 (second body styles) */
+    /* ====== Second Page (Card Style) ====== */
     .page2 {
       font-family: "Inter", sans-serif;
       background: linear-gradient(145deg, #d5e8d4, #c7d3c0);
-      margin: 0;
-      padding: 16px;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 26px;
-      margin-top: 0px;
+      margin-top: 20px;
     }
 
     .card {
       width: 332px;
-      background: #FFFDDD;
+      background: #fffddd;
       border-radius: 14px;
       box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.4);
       overflow: hidden;
-      transition: all 0.25s ease-in-out;
+      transition: 0.3s;
     }
 
     .card:active {
       transform: scale(0.97);
-      transition: transform 0.1s ease-in-out;
-      box-shadow: 4px 4px 8px #aaa;
     }
 
     .card-top {
@@ -572,256 +387,117 @@
 
 <body>
 
+  <!-- 🌿 Top Bar -->
   <div class="top-bar">
-
-    <!-- Left: MY brand with small cart -->
-
-    <div class="brand">
-
-      MY CART
-
-    </div>
-
-    <!-- Right: basket icon for shopping -->
-
-    <div class="cart">
-
-      <i class="fas fa-basket-shopping"></i>
-
-    </div>
-
+    <div class="brand">MY CART</div>
+    <div class="cart"><i class="fas fa-basket-shopping"></i></div>
   </div>
 
-  <!--new-section-2-->
-  <div class="new-section-one">•Natural products</div>
-  <div class="info-box">
-    Every customer feels the natural things</div>
-  <section class="categories">
-    <!-- Product 1 -->
-    <div class="category-item">
+  <!-- 🌿 Header -->
+  <div class="header3">🛍️ Today's Best Offers on <span>HOmIE – Hurry Up! 55% OFF</span></div>
 
-      <img src="https://i.postimg.cc/ZKBNjpLg/Screenshot-2025-08-17-13-44-03-10.jpg
-                
-                " alt="Curry leaves">
+  <!-- 🌿 Highlights Section -->
+  <section id="homie-highlights">
+    <div class="highlights-wrapper">
+      <div class="highlights-track">
+        <div class="highlight-card"><i class="fa-solid fa-leaf"></i>100% Organic & Fresh</div>
+        <div class="highlight-card"><i class="fa-solid fa-truck-fast"></i>Same-Day Delivery in Jammikunta</div>
+        <div class="highlight-card"><i class="fa-solid fa-hand-holding-heart"></i>Trusted by 1000+ Families</div>
+        <div class="highlight-card"><i class="fa-solid fa-seedling"></i>Directly from Local Farms</div>
+        <div class="highlight-card"><i class="fa-solid fa-shield-heart"></i>Premium Quality • HOmIE Certified</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🌿 Products Section -->
+  <div class="new-section-one">• Natural Products</div>
+  <div class="info-box">Every customer feels the natural things</div>
+  <section class="categories">
+    <div class="category-item">
+      <img src="https://i.postimg.cc/ZKBNjpLg/Screenshot-2025-08-17-13-44-03-10.jpg" alt="Curry leaves">
       <div class="item-content">
         <div class="product-title">Curry leaves</div>
-        <div class="product-details">
-          20 pcs | <span style="color:green;">Same-day </span><br>
-
-        </div>
+        <div class="product-details">20 pcs | <span style="color:green;">Same-day</span></div>
         <div class="price-section">
           <span class="current-price">₹159</span>
           <span class="original-price">₹192</span>
           <span class="discount">7% off</span>
         </div>
-
       </div>
     </div>
 
-    <!-- Product 2 -->
     <div class="category-item">
-      <img src="https://i.postimg.cc/nr6CNS1W/Screenshot-2025-08-17-13-43-20-77.jpg
-                
-                " alt="Vegetables">
+      <img src="https://i.postimg.cc/nr6CNS1W/Screenshot-2025-08-17-13-43-20-77.jpg" alt="Vegetables">
       <div class="item-content">
         <div class="product-title">Vegetables</div>
-        <div class="product-details">
-          10 pcs | <span style="color: green;">Same-day</span><br>
-
-        </div>
+        <div class="product-details">10 pcs | <span style="color:green;">Same-day</span></div>
         <div class="price-section">
           <span class="current-price">₹55</span>
           <span class="original-price">₹90</span>
           <span class="discount">14% off</span>
         </div>
-
       </div>
     </div>
-
   </section>
 
-  <!--new-section-3-->
-
-  <div class="new-section">•Meat & Eggs</div>
-
-  <div class="info-box">
-
-    Tasty Organic Meat & Eggs</div>
-
+  <!-- 🌿 Meat & Eggs -->
+  <div class="new-section">• Meat & Eggs</div>
+  <div class="info-box">Tasty Organic Meat & Eggs</div>
   <section class="categories">
-
-    <!-- Product 1 -->
-
     <div class="category-item">
-
-      <img src="https://i.postimg.cc/4d0dh2j3/Screenshot-2025-08-17-13-43-36-29.jpg
-                " alt="Fresh Meat">
-
+      <img src="https://i.postimg.cc/4d0dh2j3/Screenshot-2025-08-17-13-43-36-29.jpg" alt="Fresh Meat">
       <div class="item-content">
-
         <div class="product-title">Fresh Meat</div>
-
-        <div class="product-details">
-
-          20 pcs | <span style="color:green;">Same-day</span><br>
-
-        </div>
-
+        <div class="product-details">20 pcs | <span style="color:green;">Same-day</span></div>
         <div class="price-section">
-
           <span class="current-price">₹159</span>
-
           <span class="original-price">₹192</span>
-
           <span class="discount">7% off</span>
-
         </div>
-
       </div>
-
     </div>
-
-    <!-- Product 2 -->
 
     <div class="category-item">
-
-      <img src="
-                
-                
-               https://i.postimg.cc/XYxyYLNr/Screenshot-2025-08-17-13-48-42-76.jpg
-                
-     " alt="Fresh Eggs">
-
+      <img src="https://i.postimg.cc/XYxyYLNr/Screenshot-2025-08-17-13-48-42-76.jpg" alt="Fresh Eggs">
       <div class="item-content">
-
         <div class="product-title">Fresh Eggs</div>
-
-        <div class="product-details">
-
-          2 pcs | <span style="color: green;">Same-day</span><br>
-
-        </div>
-
+        <div class="product-details">2 pcs | <span style="color:green;">Same-day</span></div>
         <div class="price-section">
-
           <span class="current-price">₹55</span>
-
           <span class="original-price">₹90</span>
-
           <span class="discount">14% off</span>
-
         </div>
-
       </div>
-
     </div>
-
   </section>
 
-  <!-- Bottom Navigation -->
-  <div class="bottom-nav">
-    <div class="nav-item active">
-      <i class="fas fa-home"></i>
-      <span>Home</span>
-    </div>
-    <div class="nav-item">
-      <i class="fas fa-info-circle"></i>
-      <span>About Us</span>
-    </div>
-    <div class="nav-item">
-      <i class="fas fa-user"></i>
-      <span>Account</span>
-    </div>
-    <div class="nav-item">
-      <i class="fas fa-search"></i>
-      <span>Search</span>
-    </div>
-    <div class="nav-item">
-      <i class="fas fa-shopping-cart"></i>
-      <span>Cart</span>
-    </div>
-  </div>
-
-  <script>
-    const navItems = document.querySelectorAll('.nav-item');
-    navItems.forEach(item => {
-      item.addEventListener('click', () => {
-        navItems.forEach(i => i.classList.remove('active'));
-        item.classList.add('active');
-      });
-    });
-  </script>
-
-  <!-- Slider Script -->
-  <script>
-    let currentIndex = 0;
-    const slider = document.querySelector(".slider");
-    const dots = document.querySelectorAll(".dot");
-
-    function updateSlider() {
-      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-      dots.forEach(dot => dot.classList.remove("active"));
-      dots[currentIndex].classList.add("active");
-    }
-
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % dots.length;
-      updateSlider();
-    }
-
-    function prevSlide() {
-      currentIndex = (currentIndex - 1 + dots.length) % dots.length;
-      updateSlider();
-    }
-    // Swipe support
-    let startX = 0;
-    slider.addEventListener("touchstart", (e) => {
-      startX = e.touches[0].clientX;
-    });
-    slider.addEventListener("touchend", (e) => {
-      let endX = e.changedTouches[0].clientX;
-      if (startX - endX > 50) {
-        nextSlide();
-      } else if (endX - startX > 50) {
-        prevSlide();
-      }
-    });
-    // Auto Slide every 5s
-    setInterval(() => {
-      nextSlide();
-    }, 5000);
-  </script>
-
-  
-  <!--new-section-2-->
-  <div class="new-section-one">•Natural Country Hens</div>
-  <div class="info-box">
-    Every customer feels the natural things</div>
-  
-  <!-- Page 2 -->
+  <!-- 🌿 Country Hen -->
+  <div class="new-section-one">• Natural Country Hens</div>
+  <div class="info-box">Every customer feels the natural things</div>
   <div class="page2">
-    <!-- Your second body content here -->
-
     <div class="card">
       <div class="card-top">
-        <img class="product-img" src="https://i.postimg.cc/P5CwL88X/fowl-has-obvious-been-well-fed-has-beautiful-feathers-big-fat-hen-field-238816375.jpg" alt="Garam Masala">
+        <img class="product-img" src="https://i.postimg.cc/P5CwL88X/fowl-has-obvious-been-well-fed-has-beautiful-feathers-big-fat-hen-field-238816375.jpg" alt="Country Hen">
       </div>
       <div class="card-body">
-        <div class="title">Small Country Hens</div>
-        <div class="subtitle">Natural Healty Organic Hens </div>
-        <div class="quantity-tag">From ( 1 kg - 2 kgs )</div>
+        <div class="title">Small Country Hen</div>
+        <div class="subtitle">Healthy & Fresh • Organic</div>
+        <div class="quantity-tag">From ( 3 kg - 4 kgs )</div>
       </div>
       <div class="card-bottom">
         <div class="price-row">
           <div class="price-left">
-            <div class="current-price">Offer From: 19%</div>
+            <div class="current-price">
+
+              Offer From: 26%
+            </div>
           </div>
           <div class="cta">
 
             <div class="choose">Choose more</div>
           </div>
         </div>
-        <div class="special-price">Special Prices For You</div>
+        <div class="special-price">Special Prices for you</div>
       </div>
     </div>
 
@@ -874,24 +550,31 @@
         <div class="special-price">Special Prices for you</div>
       </div>
     </div>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const addButtons = document.querySelectorAll('.add');
-        addButtons.forEach(addBtn => {
-          addBtn.addEventListener('click', () => {
-            addBtn.classList.add('added');
-            addBtn.querySelector('.btn-text').textContent = 'Added ✓';
-            setTimeout(() => {
-              addBtn.classList.remove('added');
-              addBtn.querySelector('.btn-text').textContent = 'Add';
-            }, 900);
-          });
-        });
-      });
-    </script>
-
   </div>
+
+  <!-- 🌿 Bottom Navigation -->
+  <div class="bottom-nav">
+    <div class="nav-item active"><i class="fas fa-home"></i><span>Home</span></div>
+    <div class="nav-item"><i class="fas fa-info-circle"></i><span>About Us</span></div>
+    <div class="nav-item"><i class="fas fa-user"></i><span>Account</span></div>
+    <div class="nav-item"><i class="fas fa-search"></i><span>Search</span></div>
+    <div class="nav-item"><i class="fas fa-shopping-cart"></i><span>Cart</span></div>
+  </div>
+
+  <!-- 🌿 Scripts -->
+  <script>
+    // Duplicate highlights for infinite loop
+    const track = document.querySelector(".highlights-track");
+    track.innerHTML += track.innerHTML;
+    // Bottom navigation active toggle
+    const navItems = document.querySelectorAll(".nav-item");
+    navItems.forEach(item => {
+      item.addEventListener("click", () => {
+        navItems.forEach(i => i.classList.remove("active"));
+        item.classList.add("active");
+      });
+    });
+  </script>
 
 </body>
 
